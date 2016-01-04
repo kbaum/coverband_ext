@@ -37,8 +37,7 @@ cb_track_file(VALUE self, VALUE original_file)
   VALUE proj_dir = rb_iv_get(currentCoverbandBase, "@project_directory");
   const char * c_str_proj_dir = StringValueCStr(proj_dir);
 
-  if((strstr(srcfile, "gems") == NULL) &&
-     (strstr(srcfile, "internal:prelude") == NULL) &&
+  if(
      (strstr(srcfile, c_str_proj_dir) != NULL) &&
      (!any_ignore_patterns( rb_iv_get(currentCoverbandBase, "@ignore_patterns"), srcfile))
     ) {
